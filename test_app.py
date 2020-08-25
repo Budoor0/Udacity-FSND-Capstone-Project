@@ -11,11 +11,11 @@ from functools import wraps
 
 
 capstone_casting_assistant = str(
-    'Bearer ' + os.environ['capstone_casting_assistant'])
+    'Bearer ' + os.environ['CAPSTONE_CASTING_ASSISTANT'])
 capstone_casting_director = str(
-    'Bearer ' + os.environ['capstone_casting_director'])
+    'Bearer ' + os.environ['CAPSTONE_CASTING_DIRECTOR'])
 capstone_executive_producer = str(
-    'Bearer ' + os.environ['capstone_executive_producer'])
+    'Bearer ' + os.environ['CAPSTONE_EXECUTIVE_PRODUCER'])
 
 
 class CapstoneTestCase(unittest.TestCase):
