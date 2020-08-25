@@ -21,7 +21,7 @@ setup_db(app)
 #----------------------------------------------------------------------------#
 
 database_name = "capstone"
-database_path = os.environ['DATABASE_URL']
+database_path = os.environ['postgres://dqrfcyjxzlxjza:5aee138f70a30af7af21d9ce14bc940ec74ff7e565ee6c2261e22f7efad56d07@ec2-52-207-124-89.compute-1.amazonaws.com:5432/dakbag9lpatpsn']
 conn = psycopg2.connect(database_path, sslmode='require')
 
 #database_name = "capstone"
