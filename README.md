@@ -4,6 +4,8 @@
 
 The Casting Agency models a company that is responsible for creating movies and managing and assigning actors to those movies. You are an Executive Producer within the company and are creating a system to simplify and streamline your process.
 
+This app without frontend , you can use it using CURL or [Postman](https://www.postman.com/)
+
 
 
 ## Getting Started
@@ -116,13 +118,235 @@ The API is deployed on Heroku :
 
 ## Endpoints
 
- 
+- **Use Postman to test each endpoints :**
+
+  **GET** `'\actors'` Fetches all actors in database
+
+  - CURL  `'https:\\capstone2fsnd.herokuapp.com\actors' `with Casting_Assistant token
+  - Example 
+
+  ```javascript
+  {
+      "Actors": [
+          {
+              "age": "20",
+              "gendar": "female",
+              "id": 1,
+              "movies": [],
+              "name": "Amal"
+          },
+          {
+              "age": "21",
+              "gendar": "female",
+              "id": 2,
+              "movies": [],
+              "name": "Sara"
+          },
+          {
+              "age": "18",
+              "gendar": "female",
+              "id": 3,
+              "movies": [],
+              "name": "Samer"
+          },
+          {
+              "age": "18",
+              "gendar": "male",
+              "id": 4,
+              "movies": [],
+              "name": "Omar"
+          },
+          {
+              "age": "32",
+              "gendar": "male",
+              "id": 5,
+              "movies": [],
+              "name": "Osama"
+          }
+      ],
+      "success": true
+  }
+  ```
+
+- **GET** `'\actors\actor_id'` Fetches specific actor  in database
+
+  - CURL  `'https:\\capstone2fsnd.herokuapp.com\actors\1' `with Casting_Assistant token
+  - Example 
+
+```javascript
+{
+    "Actors": [
+        {
+            "age": "20",
+            "gendar": "female",
+            "id": 1,
+            "movies": [],
+            "name": "Amal"
+        }
+    ],
+    "success": true
+}
+```
+
+- **GET** `'\movies'` Fetches all movies in database
+
+  - CURL  `'https://capstone2fsnd.herokuapp.com/movies' `with Casting_Assistant token
+  - Example 
+
+  ```javascript
+  {
+      "movies": [
+          {
+              "actors": [],
+              "id": 1,
+              "release_data": "03/3/2020",
+              "title": "first movie"
+          },
+          {
+              "actors": [],
+              "id": 2,
+              "release_data": "10/1/2020",
+              "title": "second movie"
+          },
+          {
+              "actors": [],
+              "id": 3,
+              "release_data": "12/3/2020",
+              "title": "third movie"
+          },
+          {
+              "actors": [],
+              "id": 4,
+              "release_data": "23/5/2020",
+              "title": "fourth movie"
+          },
+          {
+              "actors": [],
+              "id": 5,
+              "release_data": "13/7/2020",
+              "title": "Fifth movie"
+          }
+      ],
+      "success": true
+  }
+  ```
+
+- **GET** `'\movies\movie_id'` Fetches specific movie  in database
+
+  - CURL  `'https:\\capstone2fsnd.herokuapp.com\movies\1' `with Casting_Assistant token
+  - Example 
+
+```javascript
+{
+    "movies": [
+        {
+            "actors": [],
+            "id": 1,
+            "release_data": "03/3/2020",
+            "title": "first movie"
+        }
+    ],
+    "success": true
+}
+```
+
+- **POST** `'\acotrs'` add new  actor in database
+  - CURL  `'https:\\capstone2fsnd.herokuapp.com\actors' `with Casting_Director token
+  - Example 
+
+```javascript
+{
+    "actor": {
+        "age": "20",
+        "gendar": "female",
+        "id": 6,
+        "movies": [],
+        "name": "Alaa"
+    },
+    "success": true
+}
+```
+
+- **POST** `'\movies'` add new  movies in database
+  - CURL  `'https:\\capstone2fsnd.herokuapp.com\movies' `with Executive_Producer token
+  - Example 
+
+```javascript
+{
+    "movie": {
+        "actors": [],
+        "id": 6,
+        "release_data": "03/3/2020",
+        "title": "six movie"
+    },
+    "success": true
+}
+```
+
+- **PATCH** `'\actors\actor_id'` edit  actor information in database
+  - CURL  `'https:\\capstone2fsnd.herokuapp.com\actors\6' `with Casting_Director token
+  - Example 
+
+```javascript
+{
+    "actor": [
+        {
+            "age": "20",
+            "gendar": "female",
+            "id": 6,
+            "movies": [],
+            "name": "Reem"
+        }
+    ],
+    "success": true
+}
+```
+
+- **PATCH** `'\moovies\movie_id'` edit  movie information in database
+  - CURL  `'https:\\capstone2fsnd.herokuapp.com\movies\4' `with Casting_Director token
+  - Example 
+
+```javascript
+{
+    "movie": [
+        {
+            "actors": [],
+            "id": 4,
+            "release_data": "03/3/2020",
+            "title": "seven movie"
+        }
+    ],
+    "success": true
+}
+```
+
+- **DELETE** `'\actors\actor_id'` delete  actor  in database
+  - CURL  `'https:\\capstone2fsnd.herokuapp.com\actors\2' `with Casting_Director token
+  - Example 
+
+```javascript
+{
+    "delete": 2,
+    "success": true
+}
+```
+
+- **DELETE** `'\moovies\movie_id'` delete  movie  in database
+  - CURL  `'https:\\capstone2fsnd.herokuapp.com\movies\3' `with Executive_Producer token
+  - Example 
+
+```javascript
+{
+    "delete": 3,
+    "success": true
+}
+```
 
 
 
 ### Error Handlers
 
-if any errors accured, the API will return a json object in the following format:
+Errors are returned as JSON in format:
 
 ```
     @app.errorhandler(404)
@@ -134,12 +358,18 @@ if any errors accured, the API will return a json object in the following format
         }), 404
 ```
 
-The following errors will be reported:
-
 - `400:Bad Request`
 - `404:resource not found`
 - ` 403:permission not allowed`
 - ` 422:unprocessable`
+
+
+
+## Style
+
+The code adheres to the [PEP 8 style guide](https://www.python.org/dev/peps/pep-0008/) 
+
+
 
 ## API Testing
 
@@ -151,7 +381,7 @@ CREATE DATABASE capstone_test ;
 
 To run Tests :
 
-```
+```javascript
 source setup.sh 
 python test_app.py
 ```

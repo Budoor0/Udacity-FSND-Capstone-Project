@@ -25,7 +25,7 @@ database_path = os.environ['DATABASE_URL']
 conn = psycopg2.connect(database_path, sslmode='require')
 
 #database_name = "capstone"
-#database_path = "postgres://{}:{}@{}/{}".format(
+# database_path = "postgres://{}:{}@{}/{}".format(
 #    'postgres', '123', 'localhost:5432', database_name)
 
 

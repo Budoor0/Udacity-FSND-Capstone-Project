@@ -295,8 +295,8 @@ def create_app(test_config=None):
             "message": error.error['description']
         }), error.status_code
 
-
     return app
+
 
 APP = create_app()
 
