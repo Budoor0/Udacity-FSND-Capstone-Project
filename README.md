@@ -59,7 +59,7 @@ flask run
 
 ### Getting Started
 
-Base URL: is  [[[[[[[[[`LINK `]]]]]]]]]
+Base URL: is  https://capstone2fsnd.herokuapp.com/
 
 ## Roles and Permissions
 
@@ -112,9 +112,17 @@ Username : capstone_executive_producer@gmail.com
 Password :capstone_executive_producer1
 ```
 
+Use this link to enter app , first Auth0 login page: [Clik here](https://bdoor-coffee.us.auth0.com/authorize?
+audience=capstone&
+response_type=token&
+client_id=VhjpGexG9k4U7gHF6KEb0jyaQLedFgpr&
+redirect_uri=https://capstone2fsnd.herokuapp.com/)
+
+
+
 ## Deployment
 
-The API is deployed on Heroku : 
+The API is deployed on Heroku : [here](https://capstone2fsnd.herokuapp.com/)
 
 ## Endpoints
 
